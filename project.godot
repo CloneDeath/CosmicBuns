@@ -8,15 +8,43 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Node",
+"class": "CardEnums",
+"language": "GDScript",
+"path": "res://GameEngine/Card/CardEnums.gd"
+} ]
 _global_script_class_icons={
-
+"CardEnums": ""
 }
 
 [application]
 
 config/name="Colorbunnies"
+run/main_scene="res://GameEngine/GameEngine.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=208
+window/size/height=208
+window/size/test_width=416
+window/size/test_height=416
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input]
+
+tile_select={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+tile_discard={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":2,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
 
 [rendering]
 

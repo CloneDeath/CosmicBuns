@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://GameEngine/GameEngine.gd" type="Script" id=1]
+[ext_resource path="res://GameEngine/Board/Board.tscn" type="PackedScene" id=2]
+[ext_resource path="res://GameEngine/Discard/Discard.tscn" type="PackedScene" id=3]
+
+[node name="GameEngine" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Board" parent="." instance=ExtResource( 2 )]
+position = Vector2( 56.5125, 68.4873 )
+width = 3
+height = 3
+
+[node name="Discard" parent="." instance=ExtResource( 3 )]
+position = Vector2( 141.832, 87.1848 )
+
+[connection signal="tile_selected" from="Board" to="." method="_on_Board_tile_selected"]
