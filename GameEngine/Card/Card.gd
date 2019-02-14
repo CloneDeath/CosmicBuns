@@ -1,4 +1,4 @@
-extends Area2D
+extends Sprite
 
 var CardColor = CardEnums.CardColor;
 var CardShape = CardEnums.CardShape;
@@ -22,5 +22,5 @@ func randomize_card():
 	shape = randi() % CardShape.size();
 
 func _process(_delta):
-	$Sprite.texture = Shapes[shape];
-	$Sprite.frame = color;
+	texture = Shapes[shape];
+	frame = color;
