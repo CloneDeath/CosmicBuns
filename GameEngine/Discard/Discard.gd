@@ -19,18 +19,14 @@ func decrease_level():
 func _process(_delta):
 	match level:
 		0:
-			$Level0.frame = 0;
-			$Level1.frame = 3;
-			$Level2.frame = 6;
+			set_animation("empty");
 		1:
-			$Level0.frame = 1;
-			$Level1.frame = 3;
-			$Level2.frame = 6;
+			set_animation("level1");
 		2:
-			$Level0.frame = 2;
-			$Level1.frame = 4;
-			$Level2.frame = 6;
+			set_animation("level2");
 		3:
-			$Level0.frame = 2;
-			$Level1.frame = 5;
-			$Level2.frame = 7;
+			set_animation("level3");
+
+func set_animation(animation):
+	if ($Animation.current_animation != animation):
+		$Animation.play(animation);
