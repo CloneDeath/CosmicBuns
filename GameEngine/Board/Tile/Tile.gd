@@ -23,6 +23,7 @@ func is_compatible(dp, card):
 		return true;
 	else:
 		var other = results[0].collider;
+		if (!other.is_in_group("tile")): return true;
 		if (other.current_card == null):
 			return true;
 		else:

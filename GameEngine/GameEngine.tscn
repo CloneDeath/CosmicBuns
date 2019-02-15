@@ -1,8 +1,40 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GameEngine/GameEngine.gd" type="Script" id=1]
 [ext_resource path="res://GameEngine/Board/Board.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameEngine/Discard/Discard.tscn" type="PackedScene" id=3]
+[ext_resource path="res://GameEngine/LevelComplete.ogg" type="AudioStream" id=4]
+
+[sub_resource type="Animation" id=1]
+
+resource_name = "win"
+length = 1.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("YouWinSound:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [ "level_complete" ],
+"method": "emit_signal"
+} ]
+}
 
 [node name="GameEngine" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,4 +47,11 @@ height = 3
 [node name="Discard" parent="." instance=ExtResource( 3 )]
 position = Vector2( 141.832, 87.1848 )
 
+[node name="Animation" type="AnimationPlayer" parent="."]
+anims/win = SubResource( 1 )
+
+[node name="YouWinSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
 [connection signal="tile_selected" from="Board" to="." method="_on_Board_tile_selected"]
+[connection signal="selected" from="Discard" to="." method="discard_card"]

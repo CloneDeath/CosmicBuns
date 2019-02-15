@@ -1,4 +1,6 @@
-extends Node2D
+extends Area2D
+
+signal selected();
 
 var level = 0;
 
@@ -30,3 +32,7 @@ func _process(_delta):
 func set_animation(animation):
 	if ($Animation.current_animation != animation):
 		$Animation.play(animation);
+
+func _input_event(_viewport, event, _shape_idx):
+	if (event.is_action_pressed("tile_select")):
+		emit_signal("selected");

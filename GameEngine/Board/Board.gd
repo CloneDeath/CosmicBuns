@@ -17,5 +17,11 @@ func _ready():
 			tile.connect("selected", self, "tile_selected");
 			$Tiles.add_child(tile);
 
+func is_solved():
+	for tile in $Tiles.get_children():
+		if (tile.current_card == null):
+			return false;
+	return true;
+
 func tile_selected(tile):
 	emit_signal("tile_selected", tile);

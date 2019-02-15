@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/LevelComplete.ogg-e01ee7ad7624e537fcf14af74ff46756.oggstr"
+
+[deps]
+
+source_file="res://GameEngine/LevelComplete.ogg"
+dest_files=[ "res://.import/LevelComplete.ogg-e01ee7ad7624e537fcf14af74ff46756.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0
