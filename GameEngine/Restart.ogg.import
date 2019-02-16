@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Restart.ogg-232b15ed3658c2f4fcf5118a04df4ae5.oggstr"
+
+[deps]
+
+source_file="res://GameEngine/Restart.ogg"
+dest_files=[ "res://.import/Restart.ogg-232b15ed3658c2f4fcf5118a04df4ae5.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

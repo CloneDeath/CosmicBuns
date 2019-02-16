@@ -15,8 +15,14 @@ export(int, 0, 5) var color = CardColor.Red;
 export(int, 0, 3) var shape = CardShape.Bunny;
 
 func randomize_card():
+	var prev_color = color;
+	var prev_shape = shape;
 	color = randi() % CardColor.size();
 	shape = randi() % CardShape.size();
+	if (color == prev_color || shape == prev_shape):
+		color = prev_color;
+		shape = prev_shape;
+		randomize_card();
 
 func _process(_delta):
 	texture = Shapes[shape];

@@ -2,6 +2,7 @@ extends Node2D
 
 #warning-ignore:unused_signal
 signal level_complete();
+signal restart_level();
 
 var card_scene = preload("res://GameEngine/Card/Card.tscn");
 var current_card = null;
@@ -45,3 +46,6 @@ func _on_Board_tile_selected(tile):
 		get_new_card();
 	else:
 		$NopeSound.play();
+
+func _on_RestartButton_pressed():
+	emit_signal("restart_level");

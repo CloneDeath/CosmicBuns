@@ -1,6 +1,118 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://GameEngine/GameEngine.tscn" type="PackedScene" id=1]
+[ext_resource path="res://NeekoFont.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Levels/Arrow.png" type="Texture" id=3]
+[ext_resource path="res://Levels/Tutorial.ogg" type="AudioStream" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=3]
+
+resource_name = "present"
+length = 8.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/path = NodePath("HowToPlay:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("AdjacentRules:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("DiscardHint:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Discard:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 4.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("RestartLevel:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("RestartButton:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 6.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/6/type = "method"
+tracks/6/path = NodePath("TutorialAnimation/TutorialSound")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0.5, 2.5, 4.5, 6.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"values": [ {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+}, {
+"args": [ 0.0 ],
+"method": "play"
+} ]
+}
 
 [node name="Level3" index="0" instance=ExtResource( 1 )]
 
@@ -9,4 +121,53 @@ position = Vector2( 72, 72 )
 
 [node name="Discard" parent="." index="1"]
 position = Vector2( 152, 90 )
+
+[node name="HowToPlay" type="Label" parent="." index="5"]
+margin_top = 10.0
+margin_right = 226.0
+margin_bottom = 26.0
+custom_fonts/font = SubResource( 1 )
+text = "Place cards onto the board until it is full"
+align = 1
+autowrap = true
+
+[node name="AdjacentRules" type="Label" parent="." index="6"]
+margin_top = 30.0
+margin_right = 226.0
+margin_bottom = 62.0
+custom_fonts/font = SubResource( 2 )
+text = "Adjacent cards must have a Different Shape and a Different Color"
+align = 1
+autowrap = true
+
+[node name="DiscardHint" type="Label" parent="." index="7"]
+margin_left = 161.889
+margin_top = 81.3333
+margin_right = 213.889
+margin_bottom = 139.333
+custom_fonts/font = SubResource( 1 )
+text = "Discard with the Test Tube"
+align = 1
+autowrap = true
+
+[node name="RestartLevel" type="Label" parent="." index="8"]
+editor/display_folded = true
+margin_top = 159.0
+margin_right = 226.0
+margin_bottom = 191.0
+custom_fonts/font = SubResource( 2 )
+text = "Restart the current level with this"
+align = 1
+autowrap = true
+
+[node name="Arrow" type="Sprite" parent="RestartLevel" index="0"]
+position = Vector2( 200, 8 )
+texture = ExtResource( 3 )
+
+[node name="TutorialAnimation" type="AnimationPlayer" parent="." index="10"]
+autoplay = "present"
+anims/present = SubResource( 3 )
+
+[node name="TutorialSound" type="AudioStreamPlayer" parent="TutorialAnimation" index="0"]
+stream = ExtResource( 4 )
 

@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://GameEngine/GameEngine.gd" type="Script" id=1]
 [ext_resource path="res://GameEngine/Board/Board.tscn" type="PackedScene" id=2]
 [ext_resource path="res://GameEngine/Discard/Discard.tscn" type="PackedScene" id=3]
 [ext_resource path="res://GameEngine/LevelComplete.ogg" type="AudioStream" id=4]
 [ext_resource path="res://GameEngine/Nope.ogg" type="AudioStream" id=5]
+[ext_resource path="res://GameEngine/Restart.ogg" type="AudioStream" id=6]
+[ext_resource path="res://GameEngine/Restart/Restart_Up.png" type="Texture" id=7]
+[ext_resource path="res://GameEngine/Restart/Restart_Down.png" type="Texture" id=8]
 
 [sub_resource type="Animation" id=1]
 
@@ -57,5 +60,17 @@ stream = ExtResource( 4 )
 [node name="NopeSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 
+[node name="RestartSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="RestartButton" type="TextureButton" parent="."]
+margin_left = 210.0
+margin_top = 160.0
+margin_right = 226.0
+margin_bottom = 176.0
+texture_normal = ExtResource( 7 )
+texture_hover = ExtResource( 8 )
+
 [connection signal="tile_selected" from="Board" to="." method="_on_Board_tile_selected"]
 [connection signal="selected" from="Discard" to="." method="discard_card"]
+[connection signal="pressed" from="RestartButton" to="." method="_on_RestartButton_pressed"]

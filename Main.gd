@@ -3,6 +3,7 @@ extends Node2D
 var current_scene: Node = null;
 
 func _ready():
+	randomize();
 	var main_menu_scene = load("res://UI/MainMenu/MainMenu.tscn");
 	load_scene(main_menu_scene);
 

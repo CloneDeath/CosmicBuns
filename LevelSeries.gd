@@ -22,12 +22,18 @@ func _ready():
 func load_next_level():
 	if (current_level_index >= levels.size() - 1):
 		emit_signal("load_scene", you_win_scene);
-	if (current_level != null):
-		current_level.queue_free();
+		return;
 	current_level_index += 1;
 	load_level(current_level_index);
 
+func restart_level():
+	load_level(current_level_index);
+	current_level.get_node("RestartSound").play();
+
 func load_level(level_index):
+	if (current_level != null):
+		current_level.queue_free();
 	current_level = levels[level_index].instance();
 	current_level.connect("level_complete", self, "load_next_level");
+	current_level.connect("restart_level", self, "restart_level");
 	add_child(current_level);
