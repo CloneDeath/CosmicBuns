@@ -10,5 +10,5 @@ width = 9
 height = 9
 
 [node name="Discard" parent="." index="1"]
-position = Vector2( 216, 167.227 )
+position = Vector2( 216, 90 )
 

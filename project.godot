@@ -20,9 +20,13 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Colorbunnies"
-run/main_scene="res://GameEngine/GameEngine.tscn"
+config/name="Cosmic Buns"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[debug]
+
+gdscript/warnings/return_value_discarded=false
 
 [display]
 
@@ -52,4 +56,5 @@ tile_discard={
 quality/driver/driver_name="GLES2"
 vram_compression/import_etc=true
 vram_compression/import_etc2=false
+environment/default_clear_color=Color( 0, 0, 0, 1 )
 environment/default_environment="res://default_env.tres"

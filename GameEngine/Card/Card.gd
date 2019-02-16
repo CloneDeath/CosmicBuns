@@ -1,4 +1,5 @@
 extends Sprite
+tool
 
 var CardColor = CardEnums.CardColor;
 var CardShape = CardEnums.CardShape;
@@ -10,12 +11,8 @@ export(Array, Texture) var Shapes = [
 	preload("res://GameEngine/Card/Art/Star.png")
 ];
 
-var color = CardColor.Red;
-var shape = CardShape.Bunny;
-
-func _ready():
-	randomize();
-	randomize_card();
+export(int, 0, 5) var color = CardColor.Red;
+export(int, 0, 3) var shape = CardShape.Bunny;
 
 func randomize_card():
 	color = randi() % CardColor.size();

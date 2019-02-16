@@ -31,6 +31,7 @@ func is_compatible(dp, card):
 			return other_card.color != card.color && other_card.shape != card.shape;
 
 func place(card):
+	$PlaceSound.play();
 	card.get_parent().remove_child(card);
 	card.position = Vector2(0, 0);
 	add_child(card);

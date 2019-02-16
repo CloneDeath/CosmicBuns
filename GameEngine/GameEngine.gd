@@ -35,9 +35,13 @@ func discard_card():
 	if ($Discard.has_room()):
 		current_card.randomize_card();
 		$Discard.increase_level();
+	else:
+		$NopeSound.play();
 
 func _on_Board_tile_selected(tile):
 	if (tile.can_accept(current_card)):
 		tile.place(current_card);
 		$Discard.decrease_level();
 		get_new_card();
+	else:
+		$NopeSound.play();

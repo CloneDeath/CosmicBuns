@@ -2,7 +2,7 @@ extends Area2D
 
 signal selected();
 
-var level = 0;
+export var level = 0;
 
 func is_full():
 	return level >= 3;
@@ -11,6 +11,7 @@ func has_room():
 	return !is_full();
 
 func increase_level():
+	$DiscardSound.play();
 	level += 1;
 	if (level >= 3): level = 3;
 

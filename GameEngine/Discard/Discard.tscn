@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://GameEngine/Discard/Discard.gd" type="Script" id=1]
 [ext_resource path="res://GameEngine/Discard/Discard.png" type="Texture" id=2]
+[ext_resource path="res://GameEngine/Discard/Discard.ogg" type="AudioStream" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
 
@@ -201,4 +202,7 @@ anims/empty = SubResource( 2 )
 anims/level1 = SubResource( 3 )
 anims/level2 = SubResource( 4 )
 anims/level3 = SubResource( 5 )
+
+[node name="DiscardSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 3 )
 
