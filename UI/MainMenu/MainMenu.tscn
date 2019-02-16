@@ -75,7 +75,6 @@ scale = Vector2( 3, 3 )
 texture = ExtResource( 2 )
 
 [node name="Buns" type="Node2D" parent="."]
-editor/display_folded = true
 position = Vector2( 113, 85 )
 scale = Vector2( 4, 4 )
 
